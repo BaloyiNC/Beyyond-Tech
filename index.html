@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beyyond Tech — IT Solutions</title>
+<meta name="description" content="Beyyond Tech: We go beyyond tech for your business solutions. Cybersecurity, cloud, automation and managed IT services.">
+<link rel="icon" type="image/jpeg" href="assets/favicon.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-void:#101114;
+    --bg-panel:#1b1d21;
+    --bg-panel-2:#212327;
+    --hairline:#33353a;
+    --metal-light:#d3d7db;
+    --metal-mid:#8b9096;
+    --metal-dim:#5b5f65;
+    --red-deep:#7c1414;
+    --red-primary:#a11e1e;
+    --red-bright:#d3372f;
+    --text-light:#eef0f2;
+    --text-muted:#9aa0a6;
+    --text-faint:#6b7076;
+    --radius:2px;
+    --display: 'Bebas Neue', sans-serif;
+    --mono: 'Space Mono', monospace;
+    --body: 'Inter', sans-serif;
+    --ease: cubic-bezier(.4,0,.2,1);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg-void);
+    color:var(--text-light);
+    font-family:var(--body);
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  button{font-family:inherit;cursor:pointer;}
+
+  ::selection{background:var(--red-primary);color:#fff;}
+
+  /* Texture */
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 3px);
+    pointer-events:none;
+    z-index:1;
+    opacity:0.5;
+  }
+
+  .wrap{max-width:1240px;margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--red-bright);
+    display:flex;align-items:center;gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;height:1px;
+    background:var(--red-bright);
+    display:inline-block;
+  }
+  h1,h2,h3,h4{
+    font-family:var(--display);
+    font-weight:400;
+    letter-spacing:0.01em;
+    line-height:1.02;
+    text-transform:uppercase;
+  }
+  .section-head h2{
+    font-size:clamp(34px,5vw,58px);
+    margin-bottom:14px;
+  }
+  .section-sub{
+    color:var(--text-muted);
+    max-width:520px;
+    font-size:16px;
+  }
+
+  /* ============ HEADER ============ */
+  header{
+    position:fixed;top:0;left:0;right:0;
+    z-index:100;
+    background:rgba(16,17,20,0.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--hairline);
+    transition:background .3s var(--ease);
+  }
+  .nav-inner{
+    max-width:1240px;margin:0 auto;padding:0 32px;
+    height:78px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{
+    display:flex;align-items:center;gap:12px;
+  }
+  .brand img{
+    width:42px;height:42px;object-fit:cover;
+    border-radius:50%;
+    border:1px solid var(--hairline);
+  }
+  .brand-word{
+    font-family:var(--display);
+    font-size:22px;
+    letter-spacing:0.03em;
+  }
+  .brand-word span{color:var(--red-bright);}
+  .brand-tag{
+    font-family:var(--mono);
+    font-size:9px;
+    letter-spacing:0.2em;
+    color:var(--text-faint);
+    text-transform:uppercase;
+    margin-top:1px;
+  }
+  nav.primary-nav ul{
+    display:flex;gap:38px;
+  }
+  nav.primary-nav a{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--metal-mid);
+    position:relative;
+    padding:6px 0;
+    transition:color .2s;
+  }
+  nav.primary-nav a::after{
+    content:"";
+    position:absolute;left:0;bottom:0;
+    width:0;height:1px;
+    background:var(--red-bright);
+    transition:width .25s var(--ease);
+  }
+  nav.primary-nav a:hover, nav.primary-nav a.active{color:var(--text-light);}
+  nav.primary-nav a:hover::after, nav.primary-nav a.active::after{width:100%;}
+
+  .header-cta{
+    display:flex;align-items:center;gap:22px;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding:12px 22px;
+    border:1px solid var(--red-primary);
+    color:var(--text-light);
+    background:transparent;
+    border-radius:var(--radius);
+    transition:all .25s var(--ease);
+    white-space:nowrap;
+  }
+  .btn:hover{background:var(--red-primary);}
+  .btn-solid{
+    background:var(--red-primary);
+    border-color:var(--red-primary);
+  }
+  .btn-solid:hover{background:var(--red-bright);border-color:var(--red-bright);}
+  .btn-ghost{border-color:var(--hairline);}
+  .btn-ghost:hover{border-color:var(--metal-mid);background:rgba(255,255,255,0.03);}
+
+  .menu-toggle{
+    display:none;
+    flex-direction:column;gap:5px;
+    background:none;border:none;padding:8px;
+  }
+  .menu-toggle span{width:22px;height:2px;background:var(--text-light);display:block;transition:.3s;}
+
+  /* ============ HERO ============ */
+  #home{
+    position:relative;
+    padding:170px 0 120px;
+    overflow:hidden;
+    border-bottom:1px solid var(--hairline);
+  }
+  #network-canvas{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    opacity:0.55;
+  }
+  .hero-inner{
+    position:relative;z-index:2;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:60px;
+    align-items:center;
+  }
+  .hero-copy h1{
+    font-size:clamp(46px,6.4vw,84px);
+    margin-bottom:26px;
+  }
+  .hero-copy h1 .hl{color:var(--red-bright);}
+  .motto{
+    font-family:var(--mono);
+    font-size:15px;
+    color:var(--metal-light);
+    border-left:2px solid var(--red-primary);
+    padding-left:16px;
+    margin:0 0 34px;
+    max-width:460px;
+    letter-spacing:0.02em;
+    font-style:normal;
+  }
+  .hero-copy p.lead{
+    color:var(--text-muted);
+    max-width:480px;
+    margin-bottom:40px;
+    font-size:16.5px;
+  }
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+  .hero-visual{
+    position:relative;
+    display:flex;justify-content:center;align-items:center;
+  }
+  .hero-visual .ring{
+    position:absolute;
+    width:420px;height:420px;
+    border:1px solid var(--hairline);
+    border-radius:50%;
+  }
+  .hero-visual .ring.r2{width:340px;height:340px;border-color:rgba(161,30,30,0.25);}
+  .hero-visual img{
+    width:340px;
+    filter:drop-shadow(0 30px 60px rgba(0,0,0,0.6));
+    position:relative;z-index:2;
+  }
+  .stat-row{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:0;
+    margin-top:64px;
+    border-top:1px solid var(--hairline);
+    padding-top:28px;
+  }
+  .stat-row div{border-right:1px solid var(--hairline);padding-right:20px;}
+  .stat-row div:last-child{border-right:none;}
+  .stat-num{
+    font-family:var(--display);
+    font-size:32px;
+    color:var(--red-bright);
+    letter-spacing:0.02em;
+  }
+  .stat-label{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+    margin-top:4px;
+  }
+
+  section{
+    position:relative;
+    padding:110px 0;
+    border-bottom:1px solid var(--hairline);
+  }
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    gap:40px;
+    margin-bottom:64px;
+    flex-wrap:wrap;
+  }
+
+  /* ============ SERVICES ============ */
+  #services{background:var(--bg-panel);}
+  .services-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:1px;
+    background:var(--hairline);
+    border:1px solid var(--hairline);
+  }
+  .service-card{
+    background:var(--bg-panel);
+    padding:44px 40px;
+    transition:background .3s var(--ease);
+    position:relative;
+  }
+  .service-card:hover{background:var(--bg-panel-2);}
+  .service-num{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--text-faint);
+    letter-spacing:0.15em;
+  }
+  .service-icon{
+    width:44px;height:44px;
+    margin:22px 0 22px;
+    color:var(--red-bright);
+  }
+  .service-icon svg{width:100%;height:100%;}
+  .service-card h3{
+    font-size:24px;
+    margin-bottom:12px;
+    letter-spacing:0.02em;
+  }
+  .service-card p{
+    color:var(--text-muted);
+    font-size:14.5px;
+    max-width:380px;
+  }
+  .service-tags{
+    display:flex;gap:8px;flex-wrap:wrap;
+    margin-top:20px;
+  }
+  .service-tags span{
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:0.06em;
+    color:var(--metal-mid);
+    border:1px solid var(--hairline);
+    padding:4px 9px;
+    text-transform:uppercase;
+  }
+
+  /* ============ PROJECTS ============ */
+  .projects-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+  .project-card{
+    border:1px solid var(--hairline);
+    background:var(--bg-panel);
+    padding:32px;
+    position:relative;
+    transition:transform .3s var(--ease), border-color .3s;
+  }
+  .project-card:hover{transform:translateY(-6px);border-color:var(--red-primary);}
+  .project-badge{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:9.5px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--red-bright);
+    border:1px solid var(--red-deep);
+    padding:4px 10px;
+    margin-bottom:24px;
+  }
+  .project-card h3{
+    font-size:22px;
+    margin-bottom:14px;
+    line-height:1.15;
+  }
+  .project-card p{
+    color:var(--text-muted);
+    font-size:14px;
+    margin-bottom:22px;
+  }
+  .project-meta{
+    display:flex;justify-content:space-between;
+    font-family:var(--mono);
+    font-size:10.5px;
+    color:var(--text-faint);
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    border-top:1px solid var(--hairline);
+    padding-top:16px;
+  }
+  .projects-note{
+    margin-top:36px;
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--text-faint);
+    letter-spacing:0.02em;
+  }
+
+  /* ============ ABOUT ============ */
+  #about{background:var(--bg-panel);}
+  .about-inner{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:80px;
+  }
+  .about-copy p{
+    color:var(--text-muted);
+    margin-bottom:20px;
+    font-size:15.5px;
+    max-width:480px;
+  }
+  .about-copy p.lead-2{
+    color:var(--text-light);
+    font-size:19px;
+    font-family:var(--body);
+    font-weight:500;
+    line-height:1.5;
+  }
+  .values-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:1px;
+    background:var(--hairline);
+    border:1px solid var(--hairline);
+  }
+  .value-item{
+    background:var(--bg-void);
+    padding:28px 26px;
+  }
+  .value-item h4{
+    font-size:17px;
+    letter-spacing:0.03em;
+    color:var(--metal-light);
+    margin-bottom:8px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .value-item h4::before{
+    content:"";
+    width:7px;height:7px;
+    background:var(--red-bright);
+    display:inline-block;
+    border-radius:50%;
+  }
+  .value-item p{font-size:13px;color:var(--text-muted);}
+
+  /* ============ CONTACT ============ */
+  .contact-inner{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:70px;
+  }
+  form.contact-form{display:flex;flex-direction:column;gap:22px;}
+  .field{display:flex;flex-direction:column;gap:8px;}
+  .field label{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+  }
+  .field input, .field textarea, .field select{
+    background:var(--bg-panel);
+    border:1px solid var(--hairline);
+    color:var(--text-light);
+    padding:14px 16px;
+    font-family:var(--body);
+    font-size:14.5px;
+    border-radius:var(--radius);
+    transition:border-color .2s;
+  }
+  .field textarea{resize:vertical;min-height:120px;}
+  .field input:focus, .field textarea:focus, .field select:focus{
+    outline:none;border-color:var(--red-primary);
+  }
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .form-note{font-size:12px;color:var(--text-faint);}
+
+  .contact-info-block{
+    border:1px solid var(--hairline);
+    padding:38px;
+    background:var(--bg-panel);
+    height:fit-content;
+  }
+  .contact-info-block h3{font-size:22px;margin-bottom:24px;}
+  .info-row{
+    display:flex;gap:16px;
+    padding:18px 0;
+    border-top:1px solid var(--hairline);
+  }
+  .info-row:first-of-type{border-top:none;}
+  .info-row .ico{color:var(--red-bright);flex-shrink:0;margin-top:2px;}
+  .info-row .lbl{
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+    margin-bottom:4px;
+  }
+  .info-row .val{font-size:14.5px;color:var(--metal-light);}
+  .social-row{display:flex;gap:12px;margin-top:28px;}
+  .social-row a{
+    width:38px;height:38px;
+    border:1px solid var(--hairline);
+    display:flex;align-items:center;justify-content:center;
+    transition:border-color .2s, color .2s;
+    color:var(--metal-mid);
+  }
+  .social-row a:hover{border-color:var(--red-primary);color:var(--red-bright);}
+  .social-row svg{width:16px;height:16px;}
+
+  /* ============ FOOTER ============ */
+  footer{
+    background:var(--bg-void);
+    padding:76px 0 0;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1fr;
+    gap:50px;
+    padding-bottom:56px;
+  }
+  .footer-brand .brand{margin-bottom:18px;}
+  .footer-brand p{
+    color:var(--text-muted);
+    font-size:13.5px;
+    max-width:280px;
+    margin-bottom:20px;
+  }
+  .footer-motto{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--red-bright);
+    letter-spacing:0.02em;
+  }
+  .footer-col h5{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+    margin-bottom:20px;
+  }
+  .footer-col ul{display:flex;flex-direction:column;gap:12px;}
+  .footer-col a{
+    font-size:14px;color:var(--metal-mid);
+    transition:color .2s;
+  }
+  .footer-col a:hover{color:var(--red-bright);}
+  .footer-col button.link-btn{
+    background:none;border:none;
+    font-size:14px;color:var(--metal-mid);
+    font-family:inherit;
+    padding:0;text-align:left;
+    transition:color .2s;
+  }
+  .footer-col button.link-btn:hover{color:var(--red-bright);}
+
+  .footer-bottom{
+    border-top:1px solid var(--hairline);
+    padding:24px 0 30px;
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:12px;
+  }
+  .footer-bottom p{
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--text-faint);
+    letter-spacing:0.02em;
+  }
+  .footer-bottom .made{color:var(--text-faint);}
+
+  /* ============ MODAL ============ */
+  .modal-overlay{
+    position:fixed;inset:0;
+    background:rgba(8,9,10,0.82);
+    backdrop-filter:blur(3px);
+    display:none;
+    align-items:center;justify-content:center;
+    z-index:1000;
+    padding:24px;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal-box{
+    background:var(--bg-panel);
+    border:1px solid var(--hairline);
+    max-width:640px;width:100%;
+    max-height:80vh;
+    display:flex;flex-direction:column;
+  }
+  .modal-head{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:26px 32px;
+    border-bottom:1px solid var(--hairline);
+  }
+  .modal-head h3{font-size:24px;}
+  .modal-close{
+    background:none;border:1px solid var(--hairline);
+    color:var(--text-light);
+    width:32px;height:32px;
+    font-size:16px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .modal-close:hover{border-color:var(--red-primary);color:var(--red-bright);}
+  .modal-body{
+    padding:28px 32px 36px;
+    overflow-y:auto;
+    color:var(--text-muted);
+    font-size:14px;
+  }
+  .modal-body h4{
+    font-family:var(--body);
+    font-weight:700;
+    text-transform:none;
+    color:var(--metal-light);
+    font-size:14.5px;
+    margin:22px 0 8px;
+  }
+  .modal-body h4:first-child{margin-top:0;}
+  .modal-body p{margin-bottom:10px;}
+  .modal-body .updated{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--text-faint);
+    margin-bottom:20px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+
+  /* ============ REVEAL ANIM ============ */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease), transform .7s var(--ease);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width:980px){
+    nav.primary-nav{
+      position:fixed;top:78px;left:0;right:0;bottom:0;
+      background:var(--bg-void);
+      flex-direction:column;
+      padding:40px 32px;
+      transform:translateX(100%);
+      transition:transform .35s var(--ease);
+      z-index:99;
+    }
+    nav.primary-nav.open{transform:translateX(0);}
+    nav.primary-nav ul{flex-direction:column;gap:26px;}
+    nav.primary-nav a{font-size:16px;}
+    .menu-toggle{display:flex;}
+    .header-cta .btn-ghost{display:none;}
+    .hero-inner{grid-template-columns:1fr;}
+    .hero-visual{order:-1;margin-bottom:20px;}
+    .hero-visual .ring{width:280px;height:280px;}
+    .hero-visual .ring.r2{width:220px;height:220px;}
+    .hero-visual img{width:220px;}
+    .stat-row{grid-template-columns:1fr;gap:18px;}
+    .stat-row div{border-right:none;border-bottom:1px solid var(--hairline);padding-bottom:18px;}
+    .services-grid{grid-template-columns:1fr;}
+    .projects-grid{grid-template-columns:1fr;}
+    .about-inner{grid-template-columns:1fr;gap:40px;}
+    .contact-inner{grid-template-columns:1fr;gap:40px;}
+    .field-row{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;gap:36px;}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 20px;}
+    .nav-inner{padding:0 20px;}
+    #home{padding:140px 0 80px;}
+    .footer-grid{grid-template-columns:1fr;}
+    section{padding:80px 0;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1;transform:none;transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a href="#home" class="brand">
+      <img src="assets/favicon.jpeg" alt="Beyyond Tech logo">
+      <div>
+        <div class="brand-word">BEY<span>Y</span>OND TECH</div>
+        <div class="brand-tag">IT Solutions</div>
+      </div>
+    </a>
+    <nav class="primary-nav" id="primaryNav">
+      <ul>
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#about" class="nav-link">About Us</a></li>
+        <li><a href="#contact" class="nav-link">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div class="header-cta">
+      <a href="#contact" class="btn btn-ghost">Support</a>
+      <a href="#contact" class="btn btn-solid">Get a Quote</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HOME / HERO ============ -->
+  <section id="home">
+    <canvas id="network-canvas"></canvas>
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <div class="eyebrow">IT Solutions &amp; Digital Infrastructure</div>
+        <h1>We go <span class="hl">beyyond</span><br>tech for your<br>business.</h1>
+        <p class="motto">"We go beyyond tech for your business solutions."</p>
+        <p class="lead">Beyyond Tech designs and secures the systems modern businesses run on — from cybersecurity and cloud infrastructure to automation and managed IT support.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-solid">Start a Project</a>
+          <a href="#services" class="btn btn-ghost">Explore Services</a>
+        </div>
+        <div class="stat-row">
+          <div>
+            <div class="stat-num">24/7</div>
+            <div class="stat-label">Monitored Support</div>
+          </div>
+          <div>
+            <div class="stat-num">100%</div>
+            <div class="stat-label">POPIA Aligned</div>
+          </div>
+          <div>
+            <div class="stat-num">01</div>
+            <div class="stat-label">Partner, Start to Scale</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="ring"></div>
+        <div class="ring r2"></div>
+        <img src="assets/favicon.jpeg" alt="Beyyond Tech emblem">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">What We Do</div>
+          <h2>Built for the way<br>you do business.</h2>
+        </div>
+        <p class="section-sub">Four connected disciplines — the same ones mapped across our emblem — working together as one system instead of four separate vendors.</p>
+      </div>
+
+      <div class="services-grid reveal">
+        <div class="service-card">
+          <div class="service-num">01 / Security</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 9 4.6-.3 8-4 8-9V5l-8-3Z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <h3>Cybersecurity &amp; Data Protection</h3>
+          <p>Threat monitoring, endpoint protection and POPIA-aligned data handling that keeps your business — and your customers' information — out of harm's way.</p>
+          <div class="service-tags"><span>Threat Monitoring</span><span>Endpoint Security</span><span>POPIA Compliance</span></div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-num">02 / Intelligence</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="2"/><circle cx="5" cy="6" r="1.6"/><circle cx="19" cy="6" r="1.6"/><circle cx="5" cy="18" r="1.6"/><circle cx="19" cy="18" r="1.6"/><path d="M6.3 7.1 10.4 11M17.7 7.1 13.6 11M6.3 16.9 10.4 13M17.7 16.9 13.6 13"/></svg>
+          </div>
+          <h3>AI &amp; Automation Solutions</h3>
+          <p>We map your workflows the way our emblem maps a network — then automate the repetitive parts so your team can spend time on what actually needs a person.</p>
+          <div class="service-tags"><span>Workflow Automation</span><span>Data Systems</span><span>Custom Tooling</span></div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-num">03 / Infrastructure</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 18a4 4 0 0 1-.6-7.96A5.5 5.5 0 0 1 17 9.02 4 4 0 0 1 17 18H7Z"/></svg>
+          </div>
+          <h3>Cloud Infrastructure</h3>
+          <p>Migration, hosting and scaling strategy so your systems grow with the business instead of holding it back — built lean for a startup budget, ready for scale.</p>
+          <div class="service-tags"><span>Cloud Migration</span><span>Hosting</span><span>Backup &amp; Recovery</span></div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-num">04 / Operations</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="8" width="16" height="12" rx="1"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>
+          </div>
+          <h3>Managed IT &amp; Deployment</h3>
+          <p>Hardware rollouts, helpdesk support and day-to-day IT management — the gears that keep everything else turning, handled quietly in the background.</p>
+          <div class="service-tags"><span>Helpdesk</span><span>Hardware Rollout</span><span>Managed Support</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Our Work</div>
+          <h2>What we're built<br>to deliver.</h2>
+        </div>
+        <p class="section-sub">Beyyond Tech is a new studio — these are the kinds of engagements we're set up to run, shown here as capability outlines rather than past client work.</p>
+      </div>
+
+      <div class="projects-grid reveal">
+        <div class="project-card">
+          <span class="project-badge">Capability</span>
+          <h3>Security Overhaul for a Growing SME</h3>
+          <p>Full network audit, endpoint hardening and staff security training, rolled out without disrupting daily operations.</p>
+          <div class="project-meta"><span>Cybersecurity</span><span>4–6 wks</span></div>
+        </div>
+        <div class="project-card">
+          <span class="project-badge">Capability</span>
+          <h3>Cloud Migration &amp; Cost Rebuild</h3>
+          <p>Moving on-premise systems to a right-sized cloud setup, cutting hosting overhead while improving uptime.</p>
+          <div class="project-meta"><span>Cloud</span><span>3–5 wks</span></div>
+        </div>
+        <div class="project-card">
+          <span class="project-badge">Capability</span>
+          <h3>Support Desk Automation</h3>
+          <p>Ticket triage and routine IT requests automated end-to-end, freeing a support team to focus on real issues.</p>
+          <div class="project-meta"><span>Automation</span><span>2–4 wks</span></div>
+        </div>
+      </div>
+      <p class="projects-note reveal">// Case studies with real client results will be published here as our first engagements complete.</p>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <div class="wrap about-inner">
+      <div class="about-copy reveal">
+        <div class="eyebrow">About Us</div>
+        <h2 style="margin-bottom:26px;">A young company built on an old idea: do the job properly.</h2>
+        <p class="lead-2">Beyyond Tech was started to give small and mid-sized businesses the kind of security, infrastructure and support that used to be reserved for large enterprises.</p>
+        <p>We're a new studio — which means every client gets direct access to the people actually doing the work, not a support queue. No jargon, no over-selling, just systems that hold up.</p>
+        <p>Our emblem says it plainly: an idea, mapped like a network, running on gears that don't stop turning. That's the standard we hold every engagement to.</p>
+      </div>
+      <div class="reveal">
+        <div class="values-grid">
+          <div class="value-item">
+            <h4>Security First</h4>
+            <p>Every system we touch is hardened before it's handed over.</p>
+          </div>
+          <div class="value-item">
+            <h4>Straight Talk</h4>
+            <p>Clear pricing, clear timelines, no technical smoke.</p>
+          </div>
+          <div class="value-item">
+            <h4>Built to Scale</h4>
+            <p>Solutions sized for where you are, ready for where you're going.</p>
+          </div>
+          <div class="value-item">
+            <h4>Always On</h4>
+            <p>Monitoring and support that doesn't clock out at 5pm.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <div class="wrap contact-inner">
+      <div class="reveal">
+        <div class="eyebrow">Contact Us</div>
+        <h2 style="margin-bottom:16px;">Let's go beyyond<br>your current setup.</h2>
+        <p class="section-sub" style="margin-bottom:36px;">Tell us where things stand and where you need them to be. We'll reply within one business day.</p>
+        <form class="contact-form" id="contactForm">
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" placeholder="Your name" required>
+            </div>
+            <div class="field">
+              <label for="company">Company</label>
+              <input type="text" id="company" placeholder="Business name">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="[email protected]" required>
+            </div>
+            <div class="field">
+              <label for="service">Service Needed</label>
+              <select id="service">
+                <option>Cybersecurity &amp; Data Protection</option>
+                <option>AI &amp; Automation</option>
+                <option>Cloud Infrastructure</option>
+                <option>Managed IT &amp; Deployment</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="What are you looking to solve?" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-solid" style="align-self:flex-start;">Send Message</button>
+          <p class="form-note">This form is a front-end template — connect it to your inbox or CRM to start receiving enquiries.</p>
+        </form>
+      </div>
+
+      <div class="reveal">
+        <div class="contact-info-block">
+          <h3>Get in Touch</h3>
+          <div class="info-row">
+            <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 12a10 10 0 1 1-5-8.66"/><path d="M22 4 12 14.01l-3-3"/></svg></div>
+            <div>
+              <div class="lbl">Email</div>
+              <div class="val">[email protected]</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.99.36 1.96.68 2.89a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.19-1.19a2 2 0 0 1 2.11-.45c.93.32 1.9.55 2.89.68A2 2 0 0 1 22 16.92Z"/></svg></div>
+            <div>
+              <div class="lbl">Phone</div>
+              <div class="val">+27 (0) 00 000 0000</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div>
+              <div class="lbl">Based In</div>
+              <div class="val">Johannesburg, South Africa</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+            <div>
+              <div class="lbl">Support Hours</div>
+              <div class="val">24/7 Monitoring · Mon–Fri Helpdesk 08:00–17:00</div>
+            </div>
+          </div>
+          <div class="social-row" aria-label="Social links — placeholders until profiles are live">
+            <a href="#" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.28-.02-2.93-1.79-2.93-1.79 0-2.06 1.4-2.06 2.84V21h-4V9Z"/></svg></a>
+            <a href="#" title="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3l7.5 9.6L3.4 21H6l6-6.7 4.7 6.7H21l-7.9-10L20.4 3h-2.6l-5.5 6.1L7.6 3H3Z"/></svg></a>
+            <a href="#" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="brand">
+          <img src="assets/favicon.jpeg" alt="Beyyond Tech logo">
+          <div>
+            <div class="brand-word">BEY<span>Y</span>OND TECH</div>
+            <div class="brand-tag">IT Solutions</div>
+          </div>
+        </a>
+        <p>Security, cloud, automation and managed IT — one partner instead of four vendors.</p>
+        <p class="footer-motto">"We go beyyond tech for your business solutions."</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Cybersecurity</a></li>
+          <li><a href="#services">AI &amp; Automation</a></li>
+          <li><a href="#services">Cloud Infrastructure</a></li>
+          <li><a href="#services">Managed IT</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><button class="link-btn" data-modal="privacy">Privacy Policy</button></li>
+          <li><button class="link-btn" data-modal="terms">Terms of Service</button></li>
+          <li><button class="link-btn" data-modal="popia">POPIA Agreement</button></li>
+          <li><button class="link-btn" data-modal="support">Support</button></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p id="footerDate">© 2026 Beyyond Tech. All rights reserved.</p>
+      <p class="made">Johannesburg, South Africa</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ MODALS ============ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="modalTitle">Title</h3>
+      <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+  // ---------- Footer auto date ----------
+  document.getElementById('footerDate').textContent =
+    '© ' + new Date().getFullYear() + ' Beyyond Tech. All rights reserved.';
+
+  // ---------- Mobile menu ----------
+  const menuToggle = document.getElementById('menuToggle');
+  const primaryNav = document.getElementById('primaryNav');
+  menuToggle.addEventListener('click', () => {
+    primaryNav.classList.toggle('open');
+  });
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => primaryNav.classList.remove('open'));
+  });
+
+  // ---------- Active nav link on scroll ----------
+  const sections = document.querySelectorAll('main section, #home');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector('.nav-link[href="#' + entry.target.id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  sections.forEach(s => spy.observe(s));
+
+  // ---------- Reveal on scroll ----------
+  const revealItems = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealItems.forEach(item => revealObserver.observe(item));
+
+  // ---------- Contact form (front-end only) ----------
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const btn = this.querySelector('button[type="submit"]');
+    const original = btn.textContent;
+    btn.textContent = 'Message Sent ✓';
+    this.reset();
+    setTimeout(() => btn.textContent = original, 2500);
+  });
+
+  // ---------- Modals ----------
+  const modalOverlay = document.getElementById('modalOverlay');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalBody = document.getElementById('modalBody');
+  const todayStr = new Date().toLocaleDateString('en-ZA', { year:'numeric', month:'long', day:'numeric' });
+
+  const modalContent = {
+    privacy: {
+      title: 'Privacy Policy',
+      html: `
+        <p class="updated">Last updated: ${todayStr}</p>
+        <h4>1. Overview</h4>
+        <p>Beyyond Tech ("we", "us") respects your privacy. This policy explains what information we collect through this website and how it is used.</p>
+        <h4>2. Information We Collect</h4>
+        <p>Contact details you submit via our forms (name, email, company, message) and standard technical data such as browser type and pages visited.</p>
+        <h4>3. How We Use It</h4>
+        <p>To respond to enquiries, provide quotes, deliver services you request, and improve this website. We do not sell your information.</p>
+        <h4>4. Data Sharing</h4>
+        <p>We only share information with service providers who help us operate (e.g. hosting, email) and only where necessary to deliver our services.</p>
+        <h4>5. Your Rights</h4>
+        <p>You may request access to, correction of, or deletion of your personal information at any time by contacting us directly.</p>
+        <p style="margin-top:16px;">This is a template policy — replace with wording reviewed by a legal professional before launch.</p>
+      `
+    },
+    terms: {
+      title: 'Terms of Service',
+      html: `
+        <p class="updated">Last updated: ${todayStr}</p>
+        <h4>1. Acceptance of Terms</h4>
+        <p>By using this website or engaging Beyyond Tech for services, you agree to these terms.</p>
+        <h4>2. Services</h4>
+        <p>Beyyond Tech provides IT consulting, cybersecurity, cloud infrastructure, automation and managed IT services as scoped in individual client agreements.</p>
+        <h4>3. Client Responsibilities</h4>
+        <p>Clients agree to provide accurate information and timely access needed to deliver contracted services.</p>
+        <h4>4. Limitation of Liability</h4>
+        <p>Beyyond Tech is not liable for indirect or consequential losses arising from use of this website or general enquiries made through it.</p>
+        <h4>5. Governing Law</h4>
+        <p>These terms are governed by the laws of the Republic of South Africa.</p>
+        <p style="margin-top:16px;">This is a template — replace with wording reviewed by a legal professional before launch.</p>
+      `
+    },
+    popia: {
+      title: 'POPIA Agreement',
+      html: `
+        <p class="updated">Last updated: ${todayStr}</p>
+        <h4>1. Purpose</h4>
+        <p>This section confirms our commitment to the Protection of Personal Information Act (POPIA) of South Africa when processing personal information collected via this site.</p>
+        <h4>2. Lawful Processing</h4>
+        <p>Personal information is collected only for specified purposes (responding to enquiries, delivering services) and processed lawfully, minimally, and with appropriate security safeguards.</p>
+        <h4>3. Consent</h4>
+        <p>By submitting a form on this website, you consent to Beyyond Tech processing your information for the purpose it was submitted.</p>
+        <h4>4. Data Subject Rights</h4>
+        <p>Under POPIA, you have the right to access, correct, or request deletion of your personal information, and to object to processing where applicable.</p>
+        <h4>5. Information Officer</h4>
+        <p>Enquiries regarding this agreement or POPIA-related requests can be directed to our Information Officer via the contact details on this site.</p>
+        <p style="margin-top:16px;">This is a template — have a legal professional confirm full POPIA compliance before launch.</p>
+      `
+    },
+    support: {
+      title: 'Support',
+      html: `
+        <p class="updated">Support hours: 24/7 monitoring · Helpdesk Mon–Fri 08:00–17:00 SAST</p>
+        <h4>Existing Clients</h4>
+        <p>Log a ticket via the contact form or email our support address directly for the fastest response.</p>
+        <h4>New Enquiries</h4>
+        <p>Use the Contact Us section to tell us what you're working with and what you need — we reply within one business day.</p>
+        <h4>Urgent / Security Incidents</h4>
+        <p>For active security incidents, mark your message "Urgent" in the subject and call our support line directly.</p>
+      `
+    }
+  };
+
+  document.querySelectorAll('[data-modal]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key = btn.getAttribute('data-modal');
+      const content = modalContent[key];
+      modalTitle.textContent = content.title;
+      modalBody.innerHTML = content.html;
+      modalOverlay.classList.add('open');
+    });
+  });
+  document.getElementById('modalClose').addEventListener('click', () => modalOverlay.classList.remove('open'));
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) modalOverlay.classList.remove('open');
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') modalOverlay.classList.remove('open');
+  });
+
+  // ---------- Network canvas (hero signature) ----------
+  (function(){
+    const canvas = document.getElementById('network-canvas');
+    const ctx = canvas.getContext('2d');
+    let w, h, nodes = [];
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function resize(){
+      const hero = document.getElementById('home');
+      w = canvas.width = hero.offsetWidth;
+      h = canvas.height = hero.offsetHeight;
+      const count = Math.max(18, Math.floor((w * h) / 42000));
+      nodes = Array.from({length: count}, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: (Math.random() - 0.5) * 0.25,
+        r: Math.random() * 1.6 + 1
+      }));
+    }
+
+    function step(){
+      ctx.clearRect(0, 0, w, h);
+      for (const n of nodes){
+        if (!reduceMotion){
+          n.x += n.vx; n.y += n.vy;
+          if (n.x < 0 || n.x > w) n.vx *= -1;
+          if (n.y < 0 || n.y > h) n.vy *= -1;
+        }
+      }
+      for (let i = 0; i < nodes.length; i++){
+        for (let j = i + 1; j < nodes.length; j++){
+          const a = nodes[i], b = nodes[j];
+          const dx = a.x - b.x, dy = a.y - b.y;
+          const dist = Math.sqrt(dx*dx + dy*dy);
+          if (dist < 150){
+            ctx.strokeStyle = 'rgba(161,30,30,' + (1 - dist/150) * 0.35 + ')';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+      for (const n of nodes){
+        ctx.fillStyle = 'rgba(211,55,47,0.85)';
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      if (!reduceMotion) requestAnimationFrame(step);
+    }
+
+    resize();
+    step();
+    window.addEventListener('resize', () => { resize(); });
+  })();
+</script>
+
+</body>
+</html>
