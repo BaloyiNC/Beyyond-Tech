@@ -359,7 +359,7 @@
   .bg-decor.spin-rev{animation:bgSpinRev 130s linear infinite;}
   @keyframes bgSpin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
   @keyframes bgSpinRev{from{transform:rotate(360deg);}to{transform:rotate(0deg);}}
-  #services .wrap, #projects .wrap, #about .wrap{position:relative;z-index:1;}
+  #services .wrap, #projects .wrap, #about .wrap, #giveback .wrap, #faq .wrap{position:relative;z-index:1;}
   .services-grid{
     display:grid;grid-template-columns:repeat(2,1fr);
     gap:1px;
@@ -541,6 +541,92 @@
     color:var(--text-faint);
     letter-spacing:0.02em;
   }
+
+  /* ============ SERVICE DETAIL TRIGGER ============ */
+  .service-view-btn{
+    font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--red-bright);
+    display:inline-flex;align-items:center;gap:6px;
+    background:none;border:none;padding:0;margin-top:20px;
+    transition:gap .2s;
+  }
+  .service-view-btn:hover{gap:11px;}
+  .service-view-btn svg{width:13px;height:13px;}
+
+  /* ============ CLIENTS ============ */
+  #clients{background:var(--bg-void);}
+  .clients-strip{
+    display:grid;grid-template-columns:repeat(6,1fr);
+    gap:1px;background:var(--hairline);border:1px solid var(--hairline);
+  }
+  .client-tile{
+    background:var(--bg-panel);
+    padding:30px 14px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+    text-align:center;min-height:112px;
+    border:1px dashed transparent;
+    transition:background .3s, border-color .3s;
+  }
+  .client-tile:hover{background:var(--bg-panel-2);border-color:var(--hairline);}
+  .client-tile svg{width:26px;height:26px;color:var(--metal-mid);}
+  .client-tile span{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--text-faint);}
+  .clients-note{margin-top:26px;font-family:var(--mono);font-size:11.5px;color:var(--text-faint);text-align:center;}
+  .clients-note a{color:var(--red-bright);text-decoration:underline;text-underline-offset:3px;}
+
+  /* ============ REVIEWS ============ */
+  #reviews{background:var(--bg-panel);}
+  .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .review-card{
+    border:1px solid var(--hairline);
+    background:var(--bg-void);
+    padding:30px;
+    position:relative;
+    display:flex;flex-direction:column;
+  }
+  .review-sample-badge{
+    position:absolute;top:18px;right:18px;
+    font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--text-faint);border:1px solid var(--hairline);padding:3px 8px;
+  }
+  .review-stars{display:flex;gap:3px;margin-bottom:18px;color:var(--red-bright);}
+  .review-stars svg{width:14px;height:14px;}
+  .review-quote{font-size:14px;color:var(--text-muted);line-height:1.65;margin-bottom:22px;flex:1;font-style:italic;}
+  .review-author{font-family:var(--mono);font-size:11.5px;color:var(--metal-light);letter-spacing:.02em;}
+  .review-role{font-family:var(--mono);font-size:9.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.06em;margin-top:3px;}
+  .reviews-note{margin-top:32px;text-align:center;font-family:var(--mono);font-size:11.5px;color:var(--text-faint);}
+
+  /* ============ GIVE BACK ============ */
+  #giveback{background:var(--bg-void);}
+  .giveback-inner{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;}
+  .giveback-copy p{color:var(--text-muted);margin-bottom:20px;font-size:15px;max-width:480px;}
+  .giveback-pillars{display:flex;flex-direction:column;gap:1px;background:var(--hairline);border:1px solid var(--hairline);}
+  .giveback-pillar{background:var(--bg-panel);padding:26px 28px;display:flex;gap:18px;align-items:flex-start;}
+  .giveback-pillar .gp-icon{
+    width:46px;height:46px;border-radius:50%;flex-shrink:0;
+    background:linear-gradient(145deg,var(--bg-panel-2),var(--bg-void));
+    border:1px solid var(--hairline);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .giveback-pillar .gp-icon svg{width:20px;height:20px;color:var(--red-bright);}
+  .giveback-pillar h4{font-size:16px;color:var(--metal-light);margin-bottom:6px;letter-spacing:.01em;}
+  .giveback-pillar p{font-size:13.5px;color:var(--text-muted);}
+
+  /* ============ FAQ ============ */
+  #faq{background:var(--bg-panel);}
+  .faq-list{max-width:820px;}
+  .faq-item{border-bottom:1px solid var(--hairline);}
+  .faq-question{
+    width:100%;text-align:left;background:none;border:none;
+    padding:24px 2px;display:flex;justify-content:space-between;align-items:center;gap:24px;
+    cursor:pointer;color:var(--text-light);font-family:var(--body);font-size:15.5px;font-weight:500;
+  }
+  .faq-plus{flex-shrink:0;width:20px;height:20px;position:relative;}
+  .faq-plus::before,.faq-plus::after{content:"";position:absolute;background:var(--red-bright);transition:transform .3s var(--ease),opacity .3s;}
+  .faq-plus::before{top:50%;left:0;width:100%;height:1.5px;transform:translateY(-50%);}
+  .faq-plus::after{left:50%;top:0;width:1.5px;height:100%;transform:translateX(-50%);}
+  .faq-item.open .faq-plus::after{opacity:0;transform:translateX(-50%) rotate(90deg);}
+  .faq-answer{max-height:0;overflow:hidden;transition:max-height .35s var(--ease);}
+  .faq-answer-inner{padding:0 2px 24px;color:var(--text-muted);font-size:14px;line-height:1.7;max-width:700px;}
 
   /* ============ ABOUT ============ */
   #about{background:var(--bg-panel);}
@@ -979,6 +1065,9 @@
     .services-grid{grid-template-columns:1fr;}
     .project-slide{flex-basis:78vw;}
     .drafts-grid{grid-template-columns:1fr;}
+    .clients-strip{grid-template-columns:repeat(3,1fr);}
+    .reviews-grid{grid-template-columns:1fr;}
+    .giveback-inner{grid-template-columns:1fr;gap:40px;}
     .about-inner{grid-template-columns:1fr;gap:40px;}
     .team-photo-frame{aspect-ratio:16/9;}
     .bg-decor{opacity:.06;transform:scale(.85);}
@@ -998,6 +1087,7 @@
     .bg-decor{display:none;}
     .values-diagram{max-width:320px;}
     .vd-node{width:50px;height:50px;}
+    .clients-strip{grid-template-columns:repeat(2,1fr);}
     .project-slide{flex-basis:82vw;}
   }
 
@@ -1023,6 +1113,7 @@
         <li><a href="#home" class="nav-link active">Home</a></li>
         <li><a href="#services" class="nav-link">Services</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#giveback" class="nav-link">Give Back</a></li>
         <li><a href="#about" class="nav-link">About Us</a></li>
         <li><a href="#contact" class="nav-link">Contact Us</a></li>
       </ul>
@@ -1098,6 +1189,7 @@
           <h3>Cybersecurity &amp; Data Protection</h3>
           <p>Threat monitoring, endpoint protection and POPIA-aligned data handling that keeps your business — and your customers' information — out of harm's way.</p>
           <div class="service-tags"><span>Threat Monitoring</span><span>Endpoint Security</span><span>POPIA Compliance</span></div>
+          <button class="service-view-btn" data-modal="svc-security">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </div>
 
         <div class="service-card">
@@ -1108,6 +1200,7 @@
           <h3>AI &amp; Automation Solutions</h3>
           <p>We map your workflows the way our emblem maps a network — then automate the repetitive parts so your team can spend time on what actually needs a person.</p>
           <div class="service-tags"><span>Workflow Automation</span><span>Data Systems</span><span>Custom Tooling</span></div>
+          <button class="service-view-btn" data-modal="svc-automation">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </div>
 
         <div class="service-card">
@@ -1118,6 +1211,7 @@
           <h3>Cloud Infrastructure</h3>
           <p>Migration, hosting and scaling strategy so your systems grow with the business instead of holding it back — built lean for a startup budget, ready for scale.</p>
           <div class="service-tags"><span>Cloud Migration</span><span>Hosting</span><span>Backup &amp; Recovery</span></div>
+          <button class="service-view-btn" data-modal="svc-cloud">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </div>
 
         <div class="service-card">
@@ -1128,6 +1222,7 @@
           <h3>Managed IT &amp; Deployment</h3>
           <p>Hardware rollouts, helpdesk support and day-to-day IT management — the gears that keep everything else turning, handled quietly in the background.</p>
           <div class="service-tags"><span>Helpdesk</span><span>Hardware Rollout</span><span>Managed Support</span></div>
+          <button class="service-view-btn" data-modal="svc-managed">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </div>
       </div>
     </div>
@@ -1186,13 +1281,13 @@
           </div>
 
           <div class="project-slide">
-            <div class="project-slide-banner banner-web">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="4" width="18" height="16" rx="1.5"/><path d="M3 8.5h18"/><circle cx="6.3" cy="6.2" r=".6" fill="currentColor" stroke="none"/><circle cx="8.3" cy="6.2" r=".6" fill="currentColor" stroke="none"/></svg>
+            <div class="project-slide-banner banner-web" style="padding:0;">
+              <img src="assets/portfolio/beyyondtech-site.png" alt="Screenshot of the Beyyond Tech website homepage" style="width:100%;height:100%;object-fit:cover;object-position:top;position:relative;z-index:1;">
             </div>
             <div class="project-slide-body">
-              <span class="project-badge">Capability</span>
+              <span class="project-badge">Real Work</span>
               <h3>Business Website Design &amp; Build</h3>
-              <p>Brand-matched site design through to launch — the same intake-to-delivery process we use for every new client site, like this one.</p>
+              <p>Brand-matched site design through to launch — this very site is our own delivery, built with the exact process we run for every new client.</p>
               <div class="project-slide-meta"><span>Web Development</span><span>2–4 wks</span></div>
               <button class="project-view-btn" data-modal="proj-web">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
             </div>
@@ -1256,6 +1351,145 @@
       </div>
 
       <p class="projects-note reveal">// Case studies with real client results will replace these outlines as our first engagements complete.</p>
+    </div>
+  </section>
+
+  <!-- ============ CLIENTS ============ -->
+  <section id="clients">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Who We Work With</div>
+          <h2>Built for businesses<br>like yours.</h2>
+        </div>
+        <p class="section-sub">Beyyond Tech is a new studio — this wall is where client logos will go as we onboard them. Every slot below is open.</p>
+      </div>
+      <div class="clients-strip reveal">
+        <div class="client-tile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2" stroke-dasharray="3 3"/><path d="M8 12h8M12 8v8"/></svg>
+          <span>Your Logo Here</span>
+        </div>
+        <div class="client-tile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2" stroke-dasharray="3 3"/><path d="M8 12h8M12 8v8"/></svg>
+          <span>Your Logo Here</span>
+        </div>
+        <div class="client-tile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2" stroke-dasharray="3 3"/><path d="M8 12h8M12 8v8"/></svg>
+          <span>Your Logo Here</span>
+        </div>
+        <div class="client-tile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2" stroke-dasharray="3 3"/><path d="M8 12h8M12 8v8"/></svg>
+          <span>Your Logo Here</span>
+        </div>
+        <div class="client-tile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2" stroke-dasharray="3 3"/><path d="M8 12h8M12 8v8"/></svg>
+          <span>Your Logo Here</span>
+        </div>
+        <div class="client-tile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2" stroke-dasharray="3 3"/><path d="M8 12h8M12 8v8"/></svg>
+          <span>Your Logo Here</span>
+        </div>
+      </div>
+      <p class="clients-note reveal">// Founding clients get priority rates and their logo featured here first. <a href="#contact">Get in touch →</a></p>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section id="reviews">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Reviews</div>
+          <h2>What clients<br>will say.</h2>
+        </div>
+        <p class="section-sub">We don't have client reviews yet — these are templates showing the format real feedback will appear in once our first engagements wrap up.</p>
+      </div>
+      <div class="reviews-grid reveal">
+        <div class="review-card">
+          <span class="review-sample-badge">Sample</span>
+          <div class="review-stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1L12 2Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1L12 2Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1L12 2Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1L12 2Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1L12 2Z"/></svg>
+          </div>
+          <p class="review-quote">"This is where a client would describe the problem they came in with and how the engagement resolved it — replace with a real quote once feedback comes in."</p>
+          <div class="review-author">Local Retail Business</div>
+          <div class="review-role">Website Development Client</div>
+        </div>
+        <div class="review-card">
+          <span class="review-sample-badge">Sample</span>
+          <div class="review-stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1L12 2Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1L12 2Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1L12 2Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1L12 2Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1L12 2Z"/></svg>
+          </div>
+          <p class="review-quote">"A second sample slot — this is where a client would speak to responsiveness, communication, or turnaround time on their project."</p>
+          <div class="review-author">Registered NPO</div>
+          <div class="review-role">Managed IT Client</div>
+        </div>
+        <div class="review-card">
+          <span class="review-sample-badge">Sample</span>
+          <div class="review-stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1L12 2Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1L12 2Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1L12 2Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1L12 2Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1L12 2Z"/></svg>
+          </div>
+          <p class="review-quote">"A third sample slot — this is where a client would mention the specific outcome or result the engagement delivered for their business."</p>
+          <div class="review-author">Independent Consultant</div>
+          <div class="review-role">Cybersecurity Client</div>
+        </div>
+      </div>
+      <p class="reviews-note reveal">// Real, verified client reviews will replace these templates as they come in.</p>
+    </div>
+  </section>
+
+  <!-- ============ GIVE BACK ============ -->
+  <section id="giveback">
+    <div class="bg-decor spin" style="width:400px;height:400px;top:-110px;right:-110px;">
+      <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="100" cy="100" r="68" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 7"/><g stroke="currentColor" stroke-width="1"><line x1="100" y1="6" x2="100" y2="22"/><line x1="100" y1="178" x2="100" y2="194"/><line x1="6" y1="100" x2="22" y2="100"/><line x1="178" y1="100" x2="194" y2="100"/><line x1="35.8" y1="35.8" x2="47" y2="47"/><line x1="153" y1="153" x2="164.2" y2="164.2"/><line x1="35.8" y1="164.2" x2="47" y2="153"/><line x1="153" y1="47" x2="164.2" y2="35.8"/></g></svg>
+    </div>
+    <div class="wrap">
+      <div class="giveback-inner">
+        <div class="giveback-copy reveal">
+          <div class="eyebrow">Give Back</div>
+          <h2 style="margin-bottom:22px;">Beyyond Cares.</h2>
+          <p>Access to good technology shouldn't stop at businesses that can afford it. Beyyond Tech is committed to supporting local NGOs and NPOs — the organisations doing essential work on tight budgets.</p>
+          <p>We give back in three ways: our time, direct contributions, and the same IT expertise we sell to paying clients — offered to qualifying non-profits at reduced or no cost.</p>
+          <p>If you run or know a registered NGO or NPO that could use help with security, a website, or day-to-day IT, we'd like to hear from you.</p>
+          <a href="#contact" class="btn btn-solid">Nominate an NGO/NPO</a>
+        </div>
+        <div class="reveal">
+          <div class="giveback-pillars">
+            <div class="giveback-pillar">
+              <div class="gp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+              <div>
+                <h4>Time</h4>
+                <p>Volunteer hours from our own team, spent directly on an NGO/NPO's technology needs.</p>
+              </div>
+            </div>
+            <div class="giveback-pillar">
+              <div class="gp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 6.5c0-1.9-2-3-5-3s-5 1.1-5 3 2 2.8 5 3 5 1.1 5 3-2 3-5 3-5-1.1-5-3"/></svg></div>
+              <div>
+                <h4>Money</h4>
+                <p>Direct financial contributions to non-profits working in our community.</p>
+              </div>
+            </div>
+            <div class="giveback-pillar">
+              <div class="gp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2"/><circle cx="5" cy="6" r="1.6"/><circle cx="19" cy="6" r="1.6"/><circle cx="5" cy="18" r="1.6"/><circle cx="19" cy="18" r="1.6"/><path d="M6.3 7.1 10.4 11M17.7 7.1 13.6 11M6.3 16.9 10.4 13M17.7 16.9 13.6 13"/></svg></div>
+              <div>
+                <h4>IT Expertise</h4>
+                <p>The same cybersecurity, cloud and web skills we sell — offered to qualifying non-profits at reduced or no cost.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1338,6 +1572,84 @@
             <span>Client Success &amp; Social Lead</span>
           </div>
           <p class="team-note">// Drop your team's real group photo into this frame — same spot, same dimensions, ready to go.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">FAQ</div>
+          <h2>Questions,<br>answered.</h2>
+        </div>
+        <p class="section-sub">The things people usually ask before their first project. Can't find yours — ask us directly in the contact form below.</p>
+      </div>
+      <div class="faq-list reveal" id="faqList">
+        <div class="faq-item open">
+          <button class="faq-question" type="button">
+            <span>Do you only work with tech-savvy businesses?</span>
+            <span class="faq-plus"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Not at all — most of our clients aren't technical, and that's fine. We scope in plain language, explain trade-offs without jargon, and only bring in technical detail where a decision actually depends on it.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>What does a typical engagement cost?</span>
+            <span class="faq-plus"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">It depends on scope — a basic brochure website costs a lot less than a full cloud migration or an ongoing security retainer. We scope every project individually and give you a fixed quote before any work starts, so there are no surprises. Get in touch for a free, no-obligation quote.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>Do you offer once-off projects or ongoing support?</span>
+            <span class="faq-plus"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Both. Website builds and cloud migrations are typically once-off projects with a defined end date. Cybersecurity monitoring, managed IT, and social media management are ongoing retainers, billed monthly. We'll recommend the right model for what you need.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>How do you handle our data under POPIA?</span>
+            <span class="faq-plus"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">We process personal information lawfully and only for the purpose it was collected, in line with South Africa's Protection of Personal Information Act. Full detail is in our POPIA Agreement, linked in the footer of this site.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>Do you work with businesses outside Johannesburg?</span>
+            <span class="faq-plus"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes. Most of our work — website builds, cloud setup, cybersecurity, social media management — can be delivered remotely anywhere in South Africa. On-site visits for hardware rollouts or in-person consultations are scoped separately based on location.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>Can you take on a project that's larger than a two-person studio usually handles?</span>
+            <span class="faq-plus"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes — for larger or highly specialised builds, we scope the project, manage the client relationship end-to-end, and bring in vetted specialist partners to deliver the technical work under our quality standards. You still deal with one point of contact throughout.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>How does the "Beyyond Cares" give-back program work?</span>
+            <span class="faq-plus"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">We offer registered NGOs and NPOs reduced or no-cost access to our services — time, direct contributions, and IT expertise. If you run or know a qualifying organisation, use the contact form and mention "Beyyond Cares" in your message.</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1492,7 +1804,11 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#clients">Clients</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#giveback">Give Back</a></li>
           <li><a href="#about">About Us</a></li>
+          <li><a href="#faq">FAQ</a></li>
           <li><a href="#contact">Contact Us</a></li>
         </ul>
       </div>
@@ -1641,6 +1957,26 @@
     dObserver.observe(diagram);
   })();
 
+  // ---------- FAQ accordion ----------
+  (function(){
+    const items = document.querySelectorAll('#faqList .faq-item');
+    if (!items.length) return;
+    function setHeight(item){
+      const answer = item.querySelector('.faq-answer');
+      const inner = item.querySelector('.faq-answer-inner');
+      answer.style.maxHeight = item.classList.contains('open') ? inner.scrollHeight + 'px' : '0px';
+    }
+    items.forEach(item => {
+      setHeight(item);
+      item.querySelector('.faq-question').addEventListener('click', () => {
+        const wasOpen = item.classList.contains('open');
+        items.forEach(i => { i.classList.remove('open'); setHeight(i); });
+        if (!wasOpen) { item.classList.add('open'); setHeight(item); }
+      });
+    });
+    window.addEventListener('resize', () => items.forEach(setHeight));
+  })();
+
   // ---------- Contact form (front-end only) ----------
   document.getElementById('contactForm').addEventListener('submit', function(e){
     e.preventDefault();
@@ -1710,6 +2046,83 @@
   const svgAuto = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="2"/><circle cx="5" cy="6" r="1.6"/><circle cx="19" cy="18" r="1.6"/></svg>';
 
   const modalContent = {
+    'svc-security': {
+      title: 'Cybersecurity & Data Protection',
+      html: `
+        ${banner('security', svgShield)}
+        <p class="updated">Service · Ongoing Retainer or Once-Off Audit</p>
+        <p>We protect the systems your business already runs on — endpoints, networks, and the personal data you're responsible for under POPIA — before an incident forces the issue.</p>
+        <div class="modal-tag-row"><span>Threat Monitoring</span><span>Endpoint Security</span><span>Staff Training</span><span>POPIA Compliance</span></div>
+        <h4>What's Included</h4>
+        <ul class="check-list">
+          <li>Network and endpoint security audit</li>
+          <li>Ongoing threat monitoring and alerting</li>
+          <li>Staff security-awareness training</li>
+          <li>POPIA-aligned data-handling review</li>
+          <li>Incident response planning</li>
+        </ul>
+        <h4>Ideal For</h4>
+        <p>Businesses handling customer data who've never had a formal security review, or who need one to satisfy a client, insurer, or regulatory requirement.</p>
+        <p style="margin-top:16px;">Every engagement is scoped and quoted individually — <a href="#contact" style="color:var(--red-bright);">get in touch</a> for a free assessment.</p>
+      `
+    },
+    'svc-automation': {
+      title: 'AI & Automation Solutions',
+      html: `
+        ${banner('automation', svgAuto)}
+        <p class="updated">Service · Project-Based</p>
+        <p>We map how work actually moves through your business, then automate the repetitive parts — so time goes to decisions that need a person, not data entry.</p>
+        <div class="modal-tag-row"><span>Workflow Automation</span><span>Data Systems</span><span>Custom Tooling</span></div>
+        <h4>What's Included</h4>
+        <ul class="check-list">
+          <li>Workflow mapping and bottleneck identification</li>
+          <li>Automation build for repetitive/manual tasks</li>
+          <li>Integration between existing tools and systems</li>
+          <li>Handover documentation and staff training</li>
+        </ul>
+        <h4>Ideal For</h4>
+        <p>Teams doing the same manual task repeatedly — data entry, ticket triage, reporting — where a few hours a week could be given back.</p>
+        <p style="margin-top:16px;">Every engagement is scoped and quoted individually — <a href="#contact" style="color:var(--red-bright);">get in touch</a> for a free assessment.</p>
+      `
+    },
+    'svc-cloud': {
+      title: 'Cloud Infrastructure',
+      html: `
+        ${banner('cloud', svgCloud)}
+        <p class="updated">Service · Project-Based with Optional Retainer</p>
+        <p>We move systems to a right-sized cloud setup — built for a startup budget today, ready to scale without a second migration later.</p>
+        <div class="modal-tag-row"><span>Cloud Migration</span><span>Hosting</span><span>Backup &amp; Recovery</span></div>
+        <h4>What's Included</h4>
+        <ul class="check-list">
+          <li>Hosting and cost audit of your current setup</li>
+          <li>Migration planning and execution</li>
+          <li>Automated backup and disaster recovery</li>
+          <li>Ongoing monitoring (optional retainer)</li>
+        </ul>
+        <h4>Ideal For</h4>
+        <p>Businesses on outdated or over-priced hosting, or anyone who's never had a proper backup and recovery plan in place.</p>
+        <p style="margin-top:16px;">Every engagement is scoped and quoted individually — <a href="#contact" style="color:var(--red-bright);">get in touch</a> for a free assessment.</p>
+      `
+    },
+    'svc-managed': {
+      title: 'Managed IT & Deployment',
+      html: `
+        ${banner('web', '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="8" width="16" height="12" rx="1"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>')}
+        <p class="updated">Service · Ongoing Retainer</p>
+        <p>The day-to-day IT management that keeps everything else running quietly in the background — hardware, helpdesk, and the small fires that never make it to a case study.</p>
+        <div class="modal-tag-row"><span>Helpdesk</span><span>Hardware Rollout</span><span>Managed Support</span></div>
+        <h4>What's Included</h4>
+        <ul class="check-list">
+          <li>Staff helpdesk support (email/phone/ticket)</li>
+          <li>New hardware setup and rollout</li>
+          <li>Software updates and patch management</li>
+          <li>Monthly reporting on tickets and uptime</li>
+        </ul>
+        <h4>Ideal For</h4>
+        <p>Small teams without an in-house IT person, who need someone to call when something breaks — and someone checking things before they do.</p>
+        <p style="margin-top:16px;">Every engagement is scoped and quoted individually — <a href="#contact" style="color:var(--red-bright);">get in touch</a> for a free assessment.</p>
+      `
+    },
     privacy: {
       title: 'Privacy Policy',
       html: `
@@ -1812,19 +2225,19 @@
     'proj-web': {
       title: 'Business Website Design & Build',
       html: `
-        ${banner('web', svgWeb)}
-        <p class="updated">Capability Showcase · Web Development · 2–4 weeks</p>
-        <p>The same client intake-to-delivery process we used to design and build this very site: brief, brand-matched design, build, review, launch.</p>
+        <div class="modal-project-banner" style="padding:0;"><img src="assets/portfolio/beyyondtech-site.png" alt="Beyyond Tech website screenshot" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+        <p class="updated">Real Delivery · Web Development · 2–4 weeks</p>
+        <p>Not a hypothetical — this is the actual site you're looking at right now, built with the same client intake-to-delivery process we run for every project: brief, brand-matched design, build, review, launch.</p>
         <div class="modal-tag-row"><span>Brand-Matched Design</span><span>Responsive Build</span><span>Launch &amp; Handover</span></div>
-        <h4>What We'd Do</h4>
+        <h4>What We Did</h4>
         <ul class="check-list">
-          <li>Take a brief and confirm scope, pages and goals</li>
-          <li>Design around the client's existing brand and colours</li>
-          <li>Build a responsive, fast-loading site</li>
-          <li>Client review, sign-off and launch</li>
+          <li>Took the brief and confirmed scope, pages and goals</li>
+          <li>Designed around the existing brand, logo and colour palette</li>
+          <li>Built a responsive, fast-loading site with no page-load frameworks</li>
+          <li>Structured it for revision — reviewed, refined, launched</li>
         </ul>
         <h4>Outcome</h4>
-        <p>A live, professional site the client can point customers to — plus a defined path for post-launch change requests.</p>
+        <p>A live, professional site ready to point customers to — plus a defined path for post-launch change requests, exactly as we'd hand it to any client.</p>
       `
     },
     'proj-social': {
