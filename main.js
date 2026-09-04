@@ -353,7 +353,7 @@
     'proj-web': {
       title: 'Business Website Design & Build',
       html: `
-        <div class="modal-project-banner" style="padding:0;"><img src="assets/portfolio/beyyondtech-site.png" alt="Beyyond Tech website screenshot" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+        ${banner('web', svgWeb)}
         <p class="updated">Real Delivery · Web Development · 2–4 weeks</p>
         <p>Not a hypothetical — this is the actual site you're looking at right now, built with the same client intake-to-delivery process we run for every project: brief, brand-matched design, build, review, launch.</p>
         <div class="modal-tag-row"><span>Brand-Matched Design</span><span>Responsive Build</span><span>Launch &amp; Handover</span></div>
