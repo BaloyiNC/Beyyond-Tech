@@ -3,6 +3,16 @@
   document.getElementById('footerDate').textContent =
     '© ' + new Date().getFullYear() + ' Beyyond Tech. All rights reserved.';
 
+  // Keep social links consistent with the live profiles.
+  document.querySelectorAll('.footer-social, .social-row').forEach(group => {
+    group.querySelectorAll('[title="X / Twitter"], [title="GitHub"]').forEach(link => link.remove());
+    const linkedIn = group.querySelector('[title="LinkedIn"]');
+    if (linkedIn) {
+      linkedIn.title = 'TikTok';
+      linkedIn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M15 3c.3 2.4 1.7 4 4 4v3c-1.5 0-2.9-.4-4-1.2V15a5 5 0 1 1-5-5c.3 0 .7 0 1 .1v3.1a2 2 0 1 0 1 1.8V3h3Z"/></svg>';
+    }
+  });
+
   // ---------- Mobile menu ----------
   const menuToggle = document.getElementById('menuToggle');
   const primaryNav = document.getElementById('primaryNav');
