@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://baloyinc.github.io/Beyyond-Tech/sitemap.xml
+Sitemap: https://www.beyyondtech.co.za/sitemap.xml

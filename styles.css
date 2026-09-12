@@ -506,6 +506,7 @@
   }
   .client-tile:hover{background:var(--bg-panel-2);border-color:var(--hairline);}
   .client-tile svg{width:26px;height:26px;color:var(--metal-mid);}
+  .client-tile img{width:100%;max-width:130px;height:42px;object-fit:contain;}
   .client-tile span{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--text-faint);}
   .clients-note{margin-top:26px;font-family:var(--mono);font-size:11.5px;color:var(--text-faint);text-align:center;}
   .clients-note a{color:var(--red-bright);text-decoration:underline;text-underline-offset:3px;}
