@@ -177,6 +177,7 @@
   const CONTACT_URL = document.body.dataset.page === 'contact' ? '#contact' : 'contact.html#contact';
 
   const banner = (cls, svg) => `<div class="modal-project-banner banner-${cls}">${svg}</div>`;
+  const imageBanner = (src, alt) => `<div class="modal-project-banner image-banner"><img src="${src}" alt="${alt}"></div>`;
   const svgShield = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 9 4.6-.3 8-4 8-9V5l-8-3Z"/><path d="M9 12l2 2 4-4"/></svg>';
   const svgCloud = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 18a4 4 0 0 1-.6-7.96A5.5 5.5 0 0 1 17 9.02 4 4 0 0 1 17 18H7Z"/></svg>';
   const svgWeb = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="4" width="18" height="16" rx="1.5"/><path d="M3 8.5h18"/></svg>';
@@ -327,7 +328,7 @@
     'proj-security': {
       title: 'Security Overhaul for a Growing SME',
       html: `
-        ${banner('security', svgShield)}
+        ${imageBanner('assets/security.jpg', 'Security project banner')}
         <p class="updated">Capability Showcase · Cybersecurity · 4–6 weeks</p>
         <p>An illustrative engagement showing how we'd take an SME with ad-hoc, unmonitored IT and bring it up to a defensible security baseline without disrupting day-to-day operations.</p>
         <div class="modal-tag-row"><span>Network Audit</span><span>Endpoint Hardening</span><span>Staff Training</span><span>POPIA Alignment</span></div>
@@ -345,7 +346,7 @@
     'proj-cloud': {
       title: 'Cloud Migration & Cost Rebuild',
       html: `
-        ${banner('cloud', svgCloud)}
+        ${imageBanner('assets/cloud.jpg', 'Cloud project banner')}
         <p class="updated">Capability Showcase · Cloud Infrastructure · 3–5 weeks</p>
         <p>Moving an on-premise or over-provisioned setup to a right-sized cloud environment — built for a startup budget, ready to scale when the business is.</p>
         <div class="modal-tag-row"><span>Cloud Migration</span><span>Cost Optimisation</span><span>Backup &amp; Recovery</span></div>
@@ -363,7 +364,7 @@
     'proj-web': {
       title: 'Business Website Design & Build',
       html: `
-        <div class="modal-project-banner" style="padding:0;"><img src="assets/portfolio/beyyondtech-site.png" alt="Beyyond Tech website screenshot" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+        ${imageBanner('assets/website.jpg', 'Beyyond Tech website project banner')}
         <p class="updated">Real Delivery · Web Development · 2–4 weeks</p>
         <p>Not a hypothetical — this is the actual site you're looking at right now, built with the same client intake-to-delivery process we run for every project: brief, brand-matched design, build, review, launch.</p>
         <div class="modal-tag-row"><span>Brand-Matched Design</span><span>Responsive Build</span><span>Launch &amp; Handover</span></div>
@@ -381,7 +382,7 @@
     'proj-social': {
       title: 'Social Media Management Setup',
       html: `
-        ${banner('social', svgSocial)}
+        ${imageBanner('assets/social.jpg', 'Social media project banner')}
         <p class="updated">Capability Showcase · Social Media · 2–3 weeks</p>
         <p>Standing up a client's social presence properly: a brand voice guide, a content calendar and an approval workflow, so posting stays consistent after we hand it over.</p>
         <div class="modal-tag-row"><span>Content Calendar</span><span>Brand Voice Guide</span><span>Approval Workflow</span></div>
@@ -399,7 +400,7 @@
     'proj-automation': {
       title: 'Support Desk Automation',
       html: `
-        ${banner('automation', svgAuto)}
+        ${imageBanner('assets/automation.jpg', 'Automation project banner')}
         <p class="updated">Capability Showcase · Automation · 2–4 weeks</p>
         <p>Automating the repetitive first steps of IT support so a small helpdesk team can focus on the issues that actually need a person.</p>
         <div class="modal-tag-row"><span>Ticket Triage</span><span>Workflow Automation</span><span>Reporting</span></div>

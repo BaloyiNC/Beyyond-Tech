@@ -954,6 +954,7 @@
     position:relative;overflow:hidden;
   }
   .modal-project-banner svg{width:48px;height:48px;position:relative;z-index:2;opacity:.9;color:var(--metal-light);}
+  .modal-project-banner.image-banner img{width:100%;height:100%;object-fit:cover;object-position:center;position:relative;z-index:1;}
   .modal-project-banner::after{
     content:"";position:absolute;inset:0;
     background-image:
