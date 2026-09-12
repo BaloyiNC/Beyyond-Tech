@@ -353,7 +353,7 @@
     'proj-web': {
       title: 'Business Website Design & Build',
       html: `
-        ${banner('web', svgWeb)}
+        <div class="modal-project-banner" style="padding:0;"><img src="assets/portfolio/beyyondtech-site.png" alt="Beyyond Tech website screenshot" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
         <p class="updated">Real Delivery · Web Development · 2–4 weeks</p>
         <p>Not a hypothetical — this is the actual site you're looking at right now, built with the same client intake-to-delivery process we run for every project: brief, brand-matched design, build, review, launch.</p>
         <div class="modal-tag-row"><span>Brand-Matched Design</span><span>Responsive Build</span><span>Launch &amp; Handover</span></div>
@@ -481,4 +481,104 @@
     resize();
     step();
     window.addEventListener('resize', () => { resize(); });
+  })();
+
+  // ---------- Global animated background (site-wide, sits behind every page) ----------
+  (function(){
+    const canvas = document.createElement('canvas');
+    canvas.id = 'grid-bg';
+    document.body.prepend(canvas);
+    const ctx = canvas.getContext('2d');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let w, h, particles = [], pulses = [];
+    const CELL = 74;
+
+    function resize(){
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+      const count = Math.max(26, Math.floor((w * h) / 34000));
+      particles = Array.from({ length: count }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: Math.random() * 1.6 + 0.7,
+        vy: -(Math.random() * 0.1 + 0.02),
+        alpha: Math.random() * 0.55 + 0.28,
+        twinkle: Math.random() * Math.PI * 2
+      }));
+    }
+
+    function spawnPulse(){
+      const horizontal = Math.random() < 0.5;
+      const lineCount = Math.floor((horizontal ? h : w) / CELL);
+      if (lineCount < 1) return;
+      pulses.push({
+        horizontal,
+        pos: Math.floor(Math.random() * lineCount) * CELL,
+        t: 0,
+        len: Math.random() * 130 + 80,
+        speed: Math.random() * 1.4 + 1,
+        dir: Math.random() < 0.5 ? 1 : -1
+      });
+    }
+
+    function step(){
+      ctx.clearRect(0, 0, w, h);
+
+      // Faint structural grid
+      ctx.strokeStyle = 'rgba(156,28,28,0.12)';
+      ctx.lineWidth = 1;
+      for (let x = 0; x < w; x += CELL){
+        ctx.beginPath(); ctx.moveTo(x + 0.5, 0); ctx.lineTo(x + 0.5, h); ctx.stroke();
+      }
+      for (let y = 0; y < h; y += CELL){
+        ctx.beginPath(); ctx.moveTo(0, y + 0.5); ctx.lineTo(w, y + 0.5); ctx.stroke();
+      }
+
+      // Drifting glow particles
+      for (const p of particles){
+        if (!reduceMotion){
+          p.y += p.vy;
+          if (p.y < -10) p.y = h + 10;
+          p.twinkle += 0.018;
+        }
+        const a = p.alpha * (0.6 + 0.4 * Math.sin(p.twinkle));
+        ctx.fillStyle = `rgba(211,55,47,${a})`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Traveling light pulses along grid lines (circuit-trace effect)
+      if (!reduceMotion){
+        for (let i = pulses.length - 1; i >= 0; i--){
+          const pu = pulses[i];
+          pu.t += pu.speed;
+          const axisLen = pu.horizontal ? w : h;
+          if (pu.t > axisLen + pu.len){ pulses.splice(i, 1); continue; }
+          const head = pu.dir > 0 ? pu.t : axisLen - pu.t;
+          const tail = pu.dir > 0 ? pu.t - pu.len : head + pu.len;
+          const start = Math.min(head, tail), end = Math.max(head, tail);
+          const grad = pu.horizontal
+            ? ctx.createLinearGradient(start, 0, end, 0)
+            : ctx.createLinearGradient(0, start, 0, end);
+          grad.addColorStop(0, 'rgba(211,55,47,0)');
+          grad.addColorStop(0.5, 'rgba(211,55,47,0.5)');
+          grad.addColorStop(1, 'rgba(211,55,47,0)');
+          ctx.strokeStyle = grad;
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          if (pu.horizontal){ ctx.moveTo(start, pu.pos); ctx.lineTo(end, pu.pos); }
+          else { ctx.moveTo(pu.pos, start); ctx.lineTo(pu.pos, end); }
+          ctx.stroke();
+        }
+        if (Math.random() < 0.008 && pulses.length < 4) spawnPulse();
+      }
+
+      if (!reduceMotion) requestAnimationFrame(step);
+    }
+
+    resize();
+    step();
+    window.addEventListener('resize', resize);
   })();
