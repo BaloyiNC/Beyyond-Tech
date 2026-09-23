@@ -286,7 +286,7 @@
     'svc-managed': {
       title: 'Managed IT & Deployment',
       html: `
-        ${imageBanner('assets/cloud.jpg', 'Managed IT service image')}
+        ${imageBanner('assets/managed it.jpeg', 'Managed IT service image')}
         <p class="updated">Service · Ongoing Retainer · Setup 1–2 weeks, then ongoing support</p>
         <p>The day-to-day IT management that keeps everything else running quietly in the background — support, deployment, updates and maintenance.</p>
         <div class="modal-tag-row"><span>Helpdesk</span><span>Hardware Rollout</span><span>Managed Support</span></div>
@@ -317,7 +317,7 @@
         <p>We only share information with service providers who help us operate (e.g. hosting, email) and only where necessary to deliver our services.</p>
         <h4>5. Your Rights</h4>
         <p>You may request access to, correction of, or deletion of your personal information at any time by contacting us directly.</p>
-        <p style="margin-top:16px;">This is a template policy — replace with wording reviewed by a legal professional before launch.</p>
+        <p style="margin-top:16px;">This is our Beyyond Promise.</p>
       `
     },
     terms: {
@@ -331,10 +331,12 @@
         <h4>3. Client Responsibilities</h4>
         <p>Clients agree to provide accurate information and timely access needed to deliver contracted services.</p>
         <h4>4. Limitation of Liability</h4>
-        <p>Beyyond Tech is not liable for indirect or consequential losses arising from use of this website or general enquiries made through it.</p>
-        <h4>5. Governing Law</h4>
+        <p>Beyyond Tech is not liable for indirect or consequential losses arising from use of this website or general enquiries made through it. We will not be held responsible for any damages or losses incurred after project handover.</p>
+        <h4>5. Misrepresentation and Intellectual Property Protection</h4>
+        <p>Any unauthorised use, copying, theft, reproduction, impersonation, or misrepresentation of Beyyond Tech services, products, branding, materials, documentation, or client deliverables is strictly prohibited. Any party found to have misrepresented, reproduced, or unlawfully used our services or products without consent shall be held liable for all resulting damages, losses, and legal costs incurred by Beyyond Tech, including claims for breach of rights, unfair competition, and any applicable civil or criminal remedies.</p>
+        <h4>6. Governing Law</h4>
         <p>These terms are governed by the laws of the Republic of South Africa.</p>
-        <p style="margin-top:16px;">This is a template — replace with wording reviewed by a legal professional before launch.</p>
+        <p style="margin-top:16px;">These are our Beyyond Terms.</p>
       `
     },
     popia: {
@@ -351,7 +353,7 @@
         <p>Under POPIA, you have the right to access, correct, or request deletion of your personal information, and to object to processing where applicable.</p>
         <h4>5. Information Officer</h4>
         <p>Enquiries regarding this agreement or POPIA-related requests can be directed to our Information Officer via the contact details on this site.</p>
-        <p style="margin-top:16px;">This is a template — have a legal professional confirm full POPIA compliance before launch.</p>
+        <p style="margin-top:16px;">This is the Beyyond Commitment.</p>
       `
     },
     support: {
@@ -359,7 +361,7 @@
       html: `
         <p class="updated">Support hours: 24/7 monitoring · Helpdesk Mon–Fri 08:00–17:00 SAST</p>
         <h4>Existing Clients</h4>
-        <p>Log a ticket via the contact form or email our support address directly for the fastest response.</p>
+        <p>Log a ticket via the contact form or contact your sales rep directly for the fastest response.</p>
         <h4>New Enquiries</h4>
         <p>Use the Contact Us section to tell us what you're working with and what you need — we reply within one business day.</p>
         <h4>Urgent / Security Incidents</h4>
