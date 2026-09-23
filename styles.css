@@ -305,11 +305,12 @@
   }
   .service-card{
     background:var(--bg-panel);
-    padding:44px 40px;
-    transition:background .3s var(--ease);
+    transition:background .3s var(--ease), transform .3s var(--ease), border-color .3s;
     position:relative;
+    border:1px solid var(--hairline);
   }
-  .service-card:hover{background:var(--bg-panel-2);}
+  .service-card:hover{background:var(--bg-panel-2); transform:translateY(-6px); border-color:var(--red-primary);}
+  .service-card-inner{padding:44px 40px;}
   .service-num{
     font-family:var(--mono);
     font-size:11px;

@@ -5,14 +5,9 @@
     footerDate.textContent = '© ' + new Date().getFullYear() + ' Beyyond Tech. All rights reserved.';
   }
 
-  // Keep social links consistent with the live profiles.
+  // Keep social links limited to the active channels used by the brand.
   document.querySelectorAll('.footer-social, .social-row').forEach(group => {
     group.querySelectorAll('[title="X / Twitter"], [title="GitHub"]').forEach(link => link.remove());
-    const linkedIn = group.querySelector('[title="LinkedIn"]');
-    if (linkedIn) {
-      linkedIn.title = 'TikTok';
-      linkedIn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M15 3c.3 2.4 1.7 4 4 4v3c-1.5 0-2.9-.4-4-1.2V15a5 5 0 1 1-5-5c.3 0 .7 0 1 .1v3.1a2 2 0 1 0 1 1.8V3h3Z"/></svg>';
-    }
   });
 
   // ---------- Mobile menu ----------
@@ -190,8 +185,8 @@
     'svc-security': {
       title: 'Cybersecurity & Data Protection',
       html: `
-        ${banner('security', svgShield)}
-        <p class="updated">Service · Ongoing Retainer or Once-Off Audit</p>
+        ${imageBanner('assets/security.jpg', 'Cybersecurity service image')}
+        <p class="updated">Service · Ongoing Retainer or Once-Off Audit · 4–6 weeks</p>
         <p>We protect the systems your business already runs on — endpoints, networks, and the personal data you're responsible for under POPIA — before an incident forces the issue.</p>
         <div class="modal-tag-row"><span>Threat Analysis</span><span>Endpoint Security</span><span>Staff Training</span><span>POPIA Compliance</span></div>
         <h4>What's Included</h4>
@@ -204,14 +199,15 @@
         </ul>
         <h4>Ideal For</h4>
         <p>Businesses handling customer data who've never had a formal security review, or who need one to satisfy a client, insurer, or regulatory requirement.</p>
-        <p style="margin-top:16px;">Every engagement is scoped and quoted individually — <a href="${CONTACT_URL}" style="color:var(--red-bright);">get in touch</a> for a free assessment.</p>
+        <h4>Cost Estimate</h4>
+        <p>A project of this scope is typically quoted at R6,500–R9,500 depending on the size of the network and number of endpoints. This is a one-off engagement with no ongoing retainer required.</p>
       `
     },
     'svc-automation': {
       title: 'AI & Automation Solutions',
       html: `
-        ${banner('automation', svgAuto)}
-        <p class="updated">Service · Project-Based</p>
+        ${imageBanner('assets/automation.jpg', 'Automation service image')}
+        <p class="updated">Service · Project-Based · 3–5 weeks</p>
         <p>We map how work actually moves through your business, then automate the repetitive parts — make time for what you love, while ai handles the rest.</p>
         <div class="modal-tag-row"><span>Workflow Automation</span><span>Data Systems</span><span>Custom Tooling</span></div>
         <h4>What's Included</h4>
@@ -223,14 +219,15 @@
         </ul>
         <h4>Ideal For</h4>
         <p>Teams doing the same manual task repeatedly — data entry, ticket triage, reporting — where a few hours a week could be given back.</p>
-        <p style="margin-top:16px;">Every engagement is scoped and quoted individually — <a href="${CONTACT_URL}" style="color:var(--red-bright);">get in touch</a> for a free assessment.</p>
+        <h4>Cost Estimate</h4>
+        <p>A project like this is typically quoted R7,500 - R12,000 depending on the complexity and scope of the automation processes required.</p>
       `
     },
     'svc-cloud': {
       title: 'Cloud Infrastructure',
       html: `
-        ${banner('cloud', svgCloud)}
-        <p class="updated">Service · Project-Based with Optional Retainer</p>
+        ${imageBanner('assets/cloud.jpg', 'Cloud infrastructure service image')}
+        <p class="updated">Service · Project-Based with Optional Retainer · 4–6 weeks</p>
         <p>We move systems to a right-sized cloud setup — built for a startup budget today, ready to scale without a second migration later.</p>
         <div class="modal-tag-row"><span>Cloud Migration</span><span>Hosting</span><span>Backup &amp; Recovery</span></div>
         <h4>What's Included</h4>
@@ -242,26 +239,68 @@
         </ul>
         <h4>Ideal For</h4>
         <p>Businesses on outdated or over-priced hosting, or anyone who's never had a proper backup and recovery plan in place.</p>
-        <p style="margin-top:16px;">Every engagement is scoped and quoted individually — <a href="${CONTACT_URL}" style="color:var(--red-bright);">get in touch</a> for a free assessment.</p>
+        <h4>Cost Estimate</h4>
+        <p>A project like this is typically quoted at R3,500 - R4,500 depending on the complexity, hosting requirements and scope.</p>
+      `
+    },
+    'svc-web': {
+      title: 'Website Development & Up-keeping',
+      html: `
+        ${imageBanner('assets/website.jpg', 'Website development service image')}
+        <p class="updated">Service · Project-Based with Ongoing Maintenance · 2–4 weeks</p>
+        <p>Not a hypothetical — this is the actual delivery model we use: brief, brand-matched design, build, review, launch, then the updates and maintenance that keep it relevant.</p>
+        <div class="modal-tag-row"><span>Brand-Matched Design</span><span>Responsive Build</span><span>Launch &amp; Handover</span><span>Maintenance</span></div>
+        <h4>What's Included</h4>
+        <ul class="check-list">
+          <li>Scope, pages and goals confirmation</li>
+          <li>Design aligned to your current brand, logo and colour palette</li>
+          <li>Responsive website build with a fast-loading front end</li>
+          <li>Post-launch change requests and maintenance support</li>
+        </ul>
+        <h4>Ideal For</h4>
+        <p>Businesses that need a professional online presence or a cleaner website experience without the overhead of a full-time web team.</p>
+        <h4>Cost Estimate</h4>
+        <p>A project like this is typically quoted at R4,000 - R8,000 depending on the number of pages, complexity and scope (creating/updating logo, business profile, letterheads, invoice, in-person consultations, etc.).</p>
+      `
+    },
+    'svc-social': {
+      title: 'Social Media Management',
+      html: `
+        ${imageBanner('assets/social.jpg', 'Social media service image')}
+        <p class="updated">Service · Setup or Retainer · 3–5 weeks</p>
+        <p>Standing up a social presence properly: a brand voice guide, a content calendar and an approval workflow, so posting stays consistent after handover.</p>
+        <div class="modal-tag-row"><span>Content Calendar</span><span>Brand Voice Guide</span><span>Approval Workflow</span><span>Monthly Reporting</span></div>
+        <h4>What's Included</h4>
+        <ul class="check-list">
+          <li>Define brand voice and content pillars</li>
+          <li>Build a recurring content calendar</li>
+          <li>Set up a client approval workflow before posting</li>
+          <li>Establish basic performance reporting</li>
+        </ul>
+        <h4>Ideal For</h4>
+        <p>Brands that want a stable, on-brand social presence without managing the content process in-house.</p>
+        <h4>Cost Estimate</h4>
+        <p>A project like this is typically quoted a once-off of R1,000 (FREE if you're already a client) then a recurring fee of R500 - R750 for monthly maintenance depending on the number of platforms, content volume and scope.</p>
       `
     },
     'svc-managed': {
       title: 'Managed IT & Deployment',
       html: `
-        ${banner('web', '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="8" width="16" height="12" rx="1"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>')}
-        <p class="updated">Service · Ongoing Retainer</p>
-        <p>The day-to-day IT management that keeps everything else running quietly in the background — website development, social media management, IT support and day-to-day management tasks.</p>
-        <div class="modal-tag-row"><span>Social Media Management</span><span>Website Development</span><span>Managed Support</span></div>
+        ${imageBanner('assets/cloud.jpg', 'Managed IT service image')}
+        <p class="updated">Service · Ongoing Retainer · Setup 1–2 weeks, then ongoing support</p>
+        <p>The day-to-day IT management that keeps everything else running quietly in the background — support, deployment, updates and maintenance.</p>
+        <div class="modal-tag-row"><span>Helpdesk</span><span>Hardware Rollout</span><span>Managed Support</span></div>
         <h4>What's Included</h4>
         <ul class="check-list">
-          <li>Website development and maintenance</li>
-          <li>Social media management</li>
           <li>Software updates and patch management</li>
+          <li>Hardware rollout and onboarding support</li>
+          <li>Helpdesk triage and daily IT management</li>
           <li>Monthly reporting on tickets and uptime</li>
         </ul>
         <h4>Ideal For</h4>
         <p>Small teams without an in-house IT person, who need someone to call when something breaks — and someone checking things before they do.</p>
-        <p style="margin-top:16px;">Every engagement is scoped and quoted individually — <a href="${CONTACT_URL}" style="color:var(--red-bright);">get in touch</a> for a free assessment.</p>
+        <h4>Cost Estimate</h4>
+        <p>A project like this is typically quoted as an ongoing retainer, with costs depending on the size of your team and the scope of services required. Quotes begin at R850 for a 3-person team.</p>
       `
     },
     privacy: {
