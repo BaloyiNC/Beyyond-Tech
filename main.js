@@ -1,7 +1,9 @@
 
   // ---------- Footer auto date ----------
-  document.getElementById('footerDate').textContent =
-    '© ' + new Date().getFullYear() + ' Beyyond Tech. All rights reserved.';
+  const footerDate = document.getElementById('footerDate');
+  if (footerDate) {
+    footerDate.textContent = '© ' + new Date().getFullYear() + ' Beyyond Tech. All rights reserved.';
+  }
 
   // Keep social links consistent with the live profiles.
   document.querySelectorAll('.footer-social, .social-row').forEach(group => {
@@ -191,11 +193,11 @@
         ${banner('security', svgShield)}
         <p class="updated">Service · Ongoing Retainer or Once-Off Audit</p>
         <p>We protect the systems your business already runs on — endpoints, networks, and the personal data you're responsible for under POPIA — before an incident forces the issue.</p>
-        <div class="modal-tag-row"><span>Threat Monitoring</span><span>Endpoint Security</span><span>Staff Training</span><span>POPIA Compliance</span></div>
+        <div class="modal-tag-row"><span>Threat Analysis</span><span>Endpoint Security</span><span>Staff Training</span><span>POPIA Compliance</span></div>
         <h4>What's Included</h4>
         <ul class="check-list">
           <li>Network and endpoint security audit</li>
-          <li>Ongoing threat monitoring and alerting</li>
+          <li>Ongoing threat analysis and reporting</li>
           <li>Staff security-awareness training</li>
           <li>POPIA-aligned data-handling review</li>
           <li>Incident response planning</li>
@@ -210,7 +212,7 @@
       html: `
         ${banner('automation', svgAuto)}
         <p class="updated">Service · Project-Based</p>
-        <p>We map how work actually moves through your business, then automate the repetitive parts — so time goes to decisions that need a person, not data entry.</p>
+        <p>We map how work actually moves through your business, then automate the repetitive parts — make time for what you love, while ai handles the rest.</p>
         <div class="modal-tag-row"><span>Workflow Automation</span><span>Data Systems</span><span>Custom Tooling</span></div>
         <h4>What's Included</h4>
         <ul class="check-list">
@@ -248,12 +250,12 @@
       html: `
         ${banner('web', '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="8" width="16" height="12" rx="1"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>')}
         <p class="updated">Service · Ongoing Retainer</p>
-        <p>The day-to-day IT management that keeps everything else running quietly in the background — hardware, helpdesk, and the small fires that never make it to a case study.</p>
-        <div class="modal-tag-row"><span>Helpdesk</span><span>Hardware Rollout</span><span>Managed Support</span></div>
+        <p>The day-to-day IT management that keeps everything else running quietly in the background — website development, social media management, IT support and day-to-day management tasks.</p>
+        <div class="modal-tag-row"><span>Social Media Management</span><span>Website Development</span><span>Managed Support</span></div>
         <h4>What's Included</h4>
         <ul class="check-list">
-          <li>Staff helpdesk support (email/phone/ticket)</li>
-          <li>New hardware setup and rollout</li>
+          <li>Website development and maintenance</li>
+          <li>Social media management</li>
           <li>Software updates and patch management</li>
           <li>Monthly reporting on tickets and uptime</li>
         </ul>
@@ -330,9 +332,9 @@
       html: `
         ${imageBanner('assets/security.jpg', 'Security project banner')}
         <p class="updated">Capability Showcase · Cybersecurity · 4–6 weeks</p>
-        <p>An illustrative engagement showing how we'd take an SME with ad-hoc, unmonitored IT and bring it up to a defensible security baseline without disrupting day-to-day operations.</p>
+        <p>A documented engagement showing how we take an SME with ad-hoc, unmonitored IT and bring it up to a defensible security baseline without disrupting day-to-day operations.</p>
         <div class="modal-tag-row"><span>Network Audit</span><span>Endpoint Hardening</span><span>Staff Training</span><span>POPIA Alignment</span></div>
-        <h4>What We'd Do</h4>
+        <h4>What We Do</h4>
         <ul class="check-list">
           <li>Full network and endpoint audit to map exposure</li>
           <li>Harden devices and close open access points</li>
@@ -341,16 +343,19 @@
         </ul>
         <h4>Outcome</h4>
         <p>A monitored, hardened environment with a clear owner for ongoing security — handed over with documentation, not left as a one-off fix.</p>
-      `
+      
+        <h4>Cost Estimate</h4>
+        <p> A project of this scope is typically quoted at R6,500–R9,500 depending on the size of the network and number of endpoints. This is a one-off engagement with no ongoing retainer required.</p>
+        `
     },
     'proj-cloud': {
       title: 'Cloud Migration & Cost Rebuild',
       html: `
         ${imageBanner('assets/cloud.jpg', 'Cloud project banner')}
-        <p class="updated">Capability Showcase · Cloud Infrastructure · 3–5 weeks</p>
+        <p class="updated">Capability Showcase · Cloud Infrastructure · 4–6 weeks</p>
         <p>Moving an on-premise or over-provisioned setup to a right-sized cloud environment — built for a startup budget, ready to scale when the business is.</p>
         <div class="modal-tag-row"><span>Cloud Migration</span><span>Cost Optimisation</span><span>Backup &amp; Recovery</span></div>
-        <h4>What We'd Do</h4>
+        <h4>What We Do</h4>
         <ul class="check-list">
           <li>Audit current hosting spend and usage patterns</li>
           <li>Migrate workloads to a right-sized cloud setup</li>
@@ -359,7 +364,10 @@
         </ul>
         <h4>Outcome</h4>
         <p>Lower hosting overhead and improved uptime, with room to scale without another migration project.</p>
-      `
+      
+        <h4>Cost Estimate</h4>
+        <p> A project like this is typically quoted at R3,500 - R4,500 depending on the complexity, hosting requirements and scope.</p>
+        `
     },
     'proj-web': {
       title: 'Business Website Design & Build',
@@ -377,16 +385,19 @@
         </ul>
         <h4>Outcome</h4>
         <p>A live, professional site ready to point customers to — plus a defined path for post-launch change requests, exactly as we'd hand it to any client.</p>
-      `
+      
+        <h4>Cost Estimate</h4>
+        <p> A project like this is typically quoted at R4,000 - R8,000 depending on the number of pages, complexity and scope (Creating/ Updating Logo, Business Profile, Letterheads, Invoice, In-person consultations, etc.).</p>
+        `
     },
     'proj-social': {
       title: 'Social Media Management Setup',
       html: `
         ${imageBanner('assets/social.jpg', 'Social media project banner')}
-        <p class="updated">Capability Showcase · Social Media · 2–3 weeks</p>
+        <p class="updated">Capability Showcase · Social Media · 3–5 weeks</p>
         <p>Standing up a client's social presence properly: a brand voice guide, a content calendar and an approval workflow, so posting stays consistent after we hand it over.</p>
         <div class="modal-tag-row"><span>Content Calendar</span><span>Brand Voice Guide</span><span>Approval Workflow</span></div>
-        <h4>What We'd Do</h4>
+        <h4>What We Do</h4>
         <ul class="check-list">
           <li>Define brand voice and content pillars</li>
           <li>Build a recurring content calendar</li>
@@ -395,23 +406,29 @@
         </ul>
         <h4>Outcome</h4>
         <p>Consistent, on-brand posting with a repeatable process — not a one-person scramble every week.</p>
-      `
+      
+        <h4>Cost Estimate</h4>
+        <p> A project like this is typically quoted a once-off of R1,000 (FREE if you're already a client) then a recurring fee of R500 - R750 for monthly maintenance depending on the number of platforms, content volume and scope.</p>
+        `
     },
     'proj-automation': {
       title: 'Support Desk Automation',
       html: `
         ${imageBanner('assets/automation.jpg', 'Automation project banner')}
-        <p class="updated">Capability Showcase · Automation · 2–4 weeks</p>
+        <p class="updated">Capability Showcase · Automation · 3–5 weeks</p>
         <p>Automating the repetitive first steps of IT support so a small helpdesk team can focus on the issues that actually need a person.</p>
         <div class="modal-tag-row"><span>Ticket Triage</span><span>Workflow Automation</span><span>Reporting</span></div>
-        <h4>What We'd Do</h4>
+        <h4>What We Do</h4>
         <ul class="check-list">
           <li>Map current ticket intake and triage steps</li>
           <li>Automate routing and first-response for common requests</li>
           <li>Set up status reporting for the support queue</li>
         </ul>
         <h4>Outcome</h4>
-        <p>Faster first response times and a support team spending less time on routine tickets.</p>
+        <p>Faster first response times and a support team spending less time on routine tickets. Also leads to improved customer satisfaction and reduced operational costs.</p>
+        
+        <h4>Cost Estimate</h4>
+        <p> A project like this is typically quoted R7,500 - R12,000 depending on the complexity and scope of the automation processes required.</p>
       `
     }
   };
